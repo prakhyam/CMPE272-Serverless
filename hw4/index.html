@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Image Gallery</title>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div id="imageContainer"></div>
+
+    <script>
+        async function fetchImages() {
+            try {
+                const response = await fetch('https://d8zre7sgka.execute-api.us-east-1.amazonaws.com/dev/fetchImages'); 
+                const data = await response.json();
+
+                const imageContainer = document.getElementById('imageContainer');
+                data.forEach((imageUrl) => {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    imageContainer.appendChild(img);
+                });
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        }
+
+        fetchImages();
+    </script>
+</body>
+</html>

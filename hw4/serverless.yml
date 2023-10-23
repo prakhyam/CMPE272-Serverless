@@ -1,0 +1,13 @@
+service: fetch-display-images
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  fetchImages:
+    handler: handler.handler
+    events:
+      - http:
+          path: fetchImages
+          method: get
