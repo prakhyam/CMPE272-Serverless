@@ -1,0 +1,60 @@
+.smallSidebar {
+  width: 20%; 
+  float: left;
+  height: 100vh;
+  background-color: #ffffff; 
+  min-height: 100vh;
+  padding: 1rem;
+}
+.smallSidebar .nav-link .icon-left {
+  font-size: 2em; /* Increase icon size */
+  font-weight: bold;
+  padding-right: 5px; /* Make the icon bold */
+}
+.smallSidebar .nav-link {
+  font-weight: bold; /* Make the link text bold */
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px; /* Adjust the padding as needed */
+  background-color: rgba(236, 233, 233, 0.528);
+}
+
+.heading h1 {
+  font-family: 'Trebuchet MS', 'Helvetica', 'sans-serif';
+  margin: 0; /* Removed the margin-bottom to align the title and button on the same line */
+}
+
+.campaign-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.campaign-list li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333; 
+}
+
+.campaign-list li a:hover,
+.campaign-list li.active a {
+  background-color: #ddd; 
+}
+
+.campaign-content {
+  width: 50%; 
+  float: left;
+  padding: 20px;
+  background-color: #fff;
+}
+.campaign-list:after {
+  content: "";
+  display: table;
+  background-color: #fff;
+  clear: both;
+}
