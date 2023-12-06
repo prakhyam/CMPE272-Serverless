@@ -48,9 +48,9 @@
           <div class="row mt-4">
              <div class="col-md-6">
                 <div class="mx-auto chart-card">
-                   <h2 class="text-center">Delivery Breakdown</h2>
-                        <canvas baseChart [data]="pieChartData" chartType="pie"></canvas>
-                </div>
+                        <h2 class="text-center">Delivery Breakdown</h2>
+                        <canvas baseChart [data]="deliveryBreakdownChartData" [options]="deliveryBreakdownChartOptions" chartType="bar"></canvas>
+                      </div>
              </div>
          
          <div class="col-md-6">

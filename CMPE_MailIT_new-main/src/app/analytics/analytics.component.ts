@@ -15,6 +15,8 @@ export class AnalyticsComponent implements OnInit {
 
   pieChartData: ChartData;
   barChartData: ChartData;
+  deliveryBreakdownChartData: ChartData;
+  deliveryBreakdownChartOptions: ChartOptions;
   barChartOptions: ChartOptions;
   campaignId = ''; 
 
@@ -32,13 +34,28 @@ export class AnalyticsComponent implements OnInit {
 
   loadPieChartData(campaignId: string) {
     this.apiservice.getDeliveryBreakdown(campaignId).subscribe(data => {
-      console.log (data)
-      this.pieChartData = {
-        labels: ['Open', 'Delivered', 'Sent', 'Failed'],
-        datasets: [{
-          data: [data.open, data.delivered, data.sent, data.other]
-        }]
-      };
+      if (data) {
+        console.log(data);
+        this.deliveryBreakdownChartData = {
+          labels: ['Open', 'Delivered', 'Sent', 'Failed'],
+          datasets: [
+            {
+              data: [data.open, data.delivered, data.sent, data.other],
+              backgroundColor: ['#FF6384', '#FF6384', '#FF6384', '#FF6384'],
+              label: 'Delivery Status'
+            }
+          ]
+        };
+        this.deliveryBreakdownChartOptions = {
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 20
+            
+            }
+          }
+        };
+      }
     });
   }
 
@@ -88,6 +105,7 @@ export class AnalyticsComponent implements OnInit {
         },
         y: {
           stacked: true,
+          max: 40
         }
       }
     };
